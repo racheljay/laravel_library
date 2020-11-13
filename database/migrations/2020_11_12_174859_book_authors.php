@@ -14,12 +14,13 @@ class BookAuthors extends Migration
     public function up()
     {
         Schema::create('book_authors', function (Blueprint $table) {
-            $table->bigIncrements('book_authors_id');
-            $table->unsignedBigInteger('ref_user_id');
+            $table->id();
+            $table->unsignedBigInteger('ref_author_id');
             $table->unsignedBigInteger('ref_book_id');
+            $table->timestamps();
 
-            $table->foreign('ref_user_id')->references('user_id')->on('users')->onDelete('cascase');
-            $table->foreign('ref_book_id')->references('book_id')->on('books')->onDelete('cascade');
+            $table->foreign('ref_author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('ref_book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 
@@ -30,6 +31,6 @@ class BookAuthors extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('book_authors');
     }
 }

@@ -14,6 +14,7 @@ class BookFactory extends Factory {
     public function definition() {
         return [
             'title' => $this->faker->word,
+            'author_id' => $this->faker->randomDigitNot(0),
             'excerpt' => $this->faker->text,
             'isbn' => $this->faker->isbn13,
             'pages' => $this->faker->randomNumber(3),

@@ -20,9 +20,10 @@ class Checkouts extends Migration
             $table->dateTime('checkout_date');
             $table->dateTime('due_date');
             $table->dateTime('return_date');
+            $table->timestamps();
 
-            $table->foreign('ref_user_id')->references('user_id')->on('users')->onDelete('cascase');
-            $table->foreign('ref_book_id')->references('book_id')->on('books')->onDelete('cascade');
+            $table->foreign('ref_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('ref_book_id')->references('id')->on('books')->onDelete('cascade');
         });
 
 

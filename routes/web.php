@@ -19,5 +19,9 @@ $router->get('/', function () use ($router) {
 
 $router->post('/register','UsersController@register');
 
-$router->get('books', 'BookController@show');
+$router->get('books', 'BookController@index');
+$router->get('book/{id}', 'BookController@show');
 
+$router->get('author/{id}', 'AuthorController@show');
+$router->get('authors', 'AuthorController@index');
+$router->get('booksby/{author_id}', 'BookController@filter');

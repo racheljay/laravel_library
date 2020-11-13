@@ -14,8 +14,9 @@ class Books extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->bigIncrements('book_id');
+            $table->id();
             $table->text('title');
+            $table->unsignedBigInteger('author_id');
             $table->text('excerpt');
             $table->char('isbn', 13);
             $table->integer('pages');
@@ -24,7 +25,7 @@ class Books extends Migration
             $table->dateTime('released');
             $table->timestamps();
 
-            
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
 
