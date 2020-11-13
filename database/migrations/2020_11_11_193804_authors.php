@@ -13,7 +13,11 @@ class Authors extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('authors', function (Blueprint $table) {
+            $table->bigIncrements('author_id');
+            $table->string('name');
+            $table->date('dob');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class Authors extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('authors');
     }
 }

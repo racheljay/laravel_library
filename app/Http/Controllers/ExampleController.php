@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+
 class ExampleController extends Controller
 {
     /**
@@ -9,10 +11,11 @@ class ExampleController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function show($book_id)
     {
-        //
+        $book = DB::table('books')->where('book_id', $book_id)->first();
+        return view('book', [
+            'book' => $book
+        ]);
     }
-
-    //
 }
