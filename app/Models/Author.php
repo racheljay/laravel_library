@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Author extends Model
 {
     use HasFactory;
-    protected $table = 'books';
+    protected $table = 'authors';
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
-
-    // public function author()
-    // {
-    //     return $this->belongsTo(Author::class);
-    // }
 }

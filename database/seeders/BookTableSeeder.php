@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Book;
 
-class DatabaseSeeder extends Seeder
+class BookTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([AuthorTableSeeder::class, BookTableSeeder::class]);
-        // $this->call([AuthorTableSeeder::class]);
+        Book::factory()->times(10)->create();
     }
 }

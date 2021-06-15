@@ -13,7 +13,12 @@ class Authors extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->date('dob');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Authors extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('authors');
     }
 }
